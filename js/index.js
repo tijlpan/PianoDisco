@@ -36,7 +36,8 @@ class PianoKeys {
 
 allKeys = [];
 const main = document.querySelector(".body_main");
-main.onclick = (e) => { if (e.target == main) 
+const board = document.querySelector(".body_main_board");
+main.onclick = (e) => { if (e.target == main || e.target == board) 
     {
     
     if(allKeys.length === 0 || !(allKeys[0].htmlRef.offsetLeft === 20)) {
@@ -63,12 +64,12 @@ button.onclick = () => {
         if(max && allKeys[counter+1].htmlRef.classList.contains("body_main_keys_grow")) { allKeys[counter+1].htmlRef.classList.remove("body_main_keys_grow")};
         if(counter === -1) {
             clearInterval(interval);
-            setTimeout(() => main.style.backgroundColor = "lightgray", 2500)
+            setTimeout(() => main.style.backgroundColor = "lightgray", 500)
         }
         if (counter !== -1) {
             allKeys[counter].htmlRef.classList.add("body_main_keys_grow");
             main.style.backgroundColor = allKeys[counter].htmlRef.style.backgroundColor;
         };
         counter--;
-    }, 2000)
+    }, 500)
 };
