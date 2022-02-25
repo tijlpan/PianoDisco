@@ -63,7 +63,7 @@ table {
   display: flex;
   flex-direction: row-reverse;
   position: relative;
-  cursor: crosshair;
+  cursor: pointer;
 }
 .body_main > div:first-child {
   margin-right: 20px;
@@ -75,7 +75,7 @@ table {
   margin-left: 20px;
   transition: height 0.5s;
   z-index: 5;
-  cursor: pointer;
+  cursor: grab;
 }
 .body_main_keys_inner {
   margin: 0 auto;
@@ -98,7 +98,7 @@ table {
   position: absolute;
   right: 20px;
   bottom: 20px;
-  cursor: grab;
+  cursor: crosshair;
 }
 .body_main_playbutton:hover {
   color: orangered;
@@ -125,6 +125,7 @@ table {
   color: whitesmoke;
   margin-top: 20px;
   margin-bottom: 50px;
+  cursor: default;
 }
 
 /*# sourceMappingURL=style.css.map */
