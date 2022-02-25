@@ -6,7 +6,8 @@
         overflow: hidden;
         width: 80vw;
         height: 80vh;
-        margin: 50px auto;
+        margin: 0px auto;
+        margin-top: 50px;
         padding-top: 0px;
         border-radius: 10px;
         background-color:lightgray;
@@ -53,5 +54,13 @@
         &_disabled {
             cursor: not-allowed;
         }
+    }
+    &_info {
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        color: whitesmoke;
+        margin-top: 20px;
+        margin-bottom: 50px;
     }
 }
