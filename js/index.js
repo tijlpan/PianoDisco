@@ -29,7 +29,6 @@ class PianoKeys {
     setUpEvents() {
         this.htmlRef.onclick = () => {
             main.style.backgroundColor = this.bgcolor;
-          // this.holder.removeChild(this.htmlRef);
         }
     }
 }
@@ -43,8 +42,6 @@ main.onclick = (e) => { if (e.target == main || e.target == board)
     if(allKeys.length === 0 || !(allKeys[0].htmlRef.offsetLeft === 20)) {
         const key = new PianoKeys(main);
         allKeys.push(key);
-        console.log(allKeys[0].htmlRef.offsetLeft);
-        console.log(main.offsetLeft);
         return key;
     }
     main.classList.add("body_main_disabled");
