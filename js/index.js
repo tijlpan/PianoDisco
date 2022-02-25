@@ -21,7 +21,7 @@ class PianoKeys {
     generateInitialHTML() {
         this.holder.insertAdjacentHTML(
           "afterbegin",
-          `<div class="body_main_keys"><div class="body_main_keys_inner"></div></div>`
+          `<div class="body_main_keys"><div = class="body_main_keys_innerbox"><div class="body_main_keys_innerbox_inner"></div></div></div>`
         );
         
         return this.holder.querySelector(".body_main_keys:first-child");
