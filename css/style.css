@@ -52,35 +52,42 @@ table {
   background-color: black;
 }
 .body_main {
+  overflow: hidden;
   width: 80vw;
   height: 80vh;
   margin: 50px auto;
-  border: 2px solid darkgray;
+  padding-top: 0px;
   border-radius: 10px;
   background-color: lightgray;
   display: flex;
   flex-direction: row-reverse;
-  gap: 20px;
   position: relative;
-}
-.body_main:hover {
   cursor: pointer;
+}
+.body_main > div:first-child {
+  margin-right: 20px;
 }
 .body_main_keys {
   width: 50px;
   height: 50%;
   border: 1px solid black;
+  margin-left: 20px;
+  transition: height 4s;
 }
 .body_main_keys_inner {
   margin: 0 auto;
-  width: 50%;
+  width: 40%;
   height: 80%;
   background-color: black;
 }
+.body_main_keys_grow {
+  height: 80%;
+}
 .body_main_playbutton {
-  margin-top: 20px;
+  margin: 20px;
   padding: 10px 20px;
   border: 2px solid black;
+  border-radius: 10px;
   background-color: #3d3737;
   color: whitesmoke;
   font-weight: 400px;
@@ -88,6 +95,12 @@ table {
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+.body_main_playbutton:hover {
+  color: orangered;
+}
+.body_main_disabled {
+  cursor: not-allowed;
 }
 
 /*# sourceMappingURL=style.css.map */

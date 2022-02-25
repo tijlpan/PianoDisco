@@ -21,8 +21,9 @@ class PianoKeys {
     generateInitialHTML() {
         this.holder.insertAdjacentHTML(
           "afterbegin",
-          `<div class="body_main_keys"></div>`
+          `<div class="body_main_keys"><div class="body_main_keys_inner"></div></div>`
         );
+        
         return this.holder.querySelector(".body_main_keys:first-child");
     }
     setUpEvents() {
@@ -31,16 +32,43 @@ class PianoKeys {
           // this.holder.removeChild(this.htmlRef);
         }
     }
-    enlargeKey() {
-        
-    }
 }
 
+allKeys = [];
 const main = document.querySelector(".body_main");
-main.onclick = (e) => { if (e.target == main) new PianoKeys(main)};
+main.onclick = (e) => { if (e.target == main) 
+    {
+    
+    if(allKeys.length === 0 || !(allKeys[0].htmlRef.offsetLeft === 20)) {
+        const key = new PianoKeys(main);
+        allKeys.push(key);
+        console.log(allKeys[0].htmlRef.offsetLeft);
+        console.log(main.offsetLeft);
+        return key;
+    }
+    main.classList.add("body_main_disabled");
+    };  
+};
 
-const button = document.querySelector("button");
-const first = document.querySelector(".body_main_keys:first-child");
+const button = document.querySelector(".body_main_playbutton");
 button.onclick = () => {
+    let counter = allKeys.length-1;
 
+    allKeys[counter].htmlRef.classList.add("body_main_keys_grow");
+    main.style.backgroundColor = allKeys[counter].htmlRef.style.backgroundColor;
+    counter--;
+
+    const interval = setInterval(function() {
+        const max = allKeys[counter+1];
+        if(max && allKeys[counter+1].htmlRef.classList.contains("body_main_keys_grow")) { allKeys[counter+1].htmlRef.classList.remove("body_main_keys_grow")};
+        if(counter === -1) {
+            clearInterval(interval);
+            setTimeout(() => main.style.backgroundColor = "lightgray", 2500)
+        }
+        if (counter !== -1) {
+            allKeys[counter].htmlRef.classList.add("body_main_keys_grow");
+            main.style.backgroundColor = allKeys[counter].htmlRef.style.backgroundColor;
+        };
+        counter--;
+    }, 2000)
 };
